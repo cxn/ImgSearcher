@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin
+    xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.qq.wx"
+    version="0.3.0">
+
+    <name>Wx ImgSearcher</name>
+    <description>Wx ImgSearcher Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>weixin, ImgSearcher</keywords>
+    <repo></repo>
+    <issue></issue>
+
+    <engines>
+        <engine name="cordova" version=">=2.9.0" />
+    </engines>
+
+    <js-module src="www/wx.js" name="wx">
+        <clobbers target="window.wx" />
+    </js-module>
+
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/widget">
+            <feature name="wx">
+                <param name="android-package" value="com.qq.wx.ImgSearcherAction"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/com/qq/wx/ImgSearcherAction.java"
+            target-dir="src/com/qq/wx"/>
+        <!--<source-file src="src/android/com/qq/wx/img/imgsearcher/ImgSearcher.class"
+            target-dir="src/com/qq/wx/img/i"/>-->
+
+        <!-- kludge for 2.9 -->
+        <!--<source-file src="src/android/org/apache/cordova/api/Dummy.java"
+            target-dir="src/org/apache/cordova/api"/>-->
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        </config-file>
+
+    </platform>
+
+    <!--<platform name="ios">
+
+        <config-file target="config.xml" parent="/widget">
+            <feature name="BluetoothSerial">
+                <param name="ios-package" value="MEGBluetoothSerial" onload="true"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/MEGBluetoothSerial.h" target-dir="BluetoothSerial" />
+        <source-file src="src/ios/MEGBluetoothSerial.m" target-dir="BluetoothSerial" />
+        <header-file src="src/ios/CBPeripheral+Extensions.h" target-dir="BluetoothSerial" />
+        <source-file src="src/ios/CBPeripheral+Extensions.m" target-dir="BluetoothSerial" />
+		-->
+        <!-- BLEMini see http://redbearlab.com -->
+        <!--<header-file src="src/ios/BLE.h" target-dir="BluetoothSerial" />
+        <header-file src="src/ios/BLEDefines.h" target-dir="BluetoothSerial" />
+        <source-file src="src/ios/BLE.m" target-dir="BluetoothSerial" />-->
+
+        <!-- frameworks -->
+        <!--<framework src="CoreBluetooth.framework" />
+
+    </platform>-->
+</plugin>
